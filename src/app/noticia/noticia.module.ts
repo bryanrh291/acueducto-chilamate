@@ -4,6 +4,7 @@ import { NoticiaRoutingModule } from './noticia-routing.module';
 import { NoticiaComponent } from './components/noticia/noticia.component';
 import { NoticiaDetailComponent } from './components/noticia-detail/noticia-detail.component';
 import { NoticiasComponent } from './components/noticias/noticias.component';
+import { MaterialModule } from '../material/material.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { NoticiasComponent } from './components/noticias/noticias.component';
   ],
   imports: [
     CommonModule,
-    NoticiaRoutingModule
+    NoticiaRoutingModule,
+    MaterialModule
   ]
 })
 export class NoticiaModule { }
