@@ -1,0 +1,11 @@
+<div>
+  <ul>
+    <li>Título: {{noticia.titulo}}</li>
+    <li>Descripcion: {{noticia.descripcion}}</li>
+    <li>Fecha: {{noticia.fecha}}</li>
+  </ul>
+</div>
+
+<div>
+  <img *ngFor="let img of noticia.imagenes" [src]="img" alt="imagen noticia">
+</div>

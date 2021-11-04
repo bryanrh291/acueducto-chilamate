@@ -1,0 +1,6 @@
+
+<h3>{{noticia.titulo}}</h3>
+
+<img [src]=noticia.imagenes[1] alt="imagen">
+<strong>{{noticia.descripcion}}</strong>
+<button> <a [routerLink]="['/noticias/',noticia.id]">Leer más</a></button>
