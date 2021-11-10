@@ -1,9 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { SwiperComponent} from 'swiper/angular';
+import SwiperCore,{ Autoplay,Pagination, Navigation } from 'swiper';
+
+SwiperCore.use([Autoplay, Pagination, Navigation]);
+
 
 @Component({
   selector: 'app-banner',
   templateUrl: './banner.component.html',
-  styleUrls: ['./banner.component.scss']
+  styleUrls: ['./banner.component.scss'],
+  encapsulation:ViewEncapsulation.None,
 })
 export class BannerComponent implements OnInit {
 

@@ -1,6 +1,20 @@
 
-<h3>{{noticia.titulo}}</h3>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{noticia.titulo | uppercase}}</mat-card-title>
+    <mat-card-subtitle></mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>{{noticia.descripcion | slice:0:48 }}</p>
+  </mat-card-content>
+  <div class="crop-image">
+    <img [src]=noticia.imagenes[0] alt="imagen">
+  </div>
+  <mat-card-actions>
+    <button mat-button color="warn"> <a [routerLink]="['/noticias/',noticia.id]">Leer más</a></button>
+  </mat-card-actions>
+</mat-card>
 
-<img [src]=noticia.imagenes[1] alt="imagen">
-<strong>{{noticia.descripcion}}</strong>
-<button mat-button color="warn"> <a [routerLink]="['/noticias/',noticia.id]">Leer más</a></button>
+
+
+

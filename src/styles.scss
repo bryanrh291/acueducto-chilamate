@@ -5,10 +5,20 @@ body
   padding: 0;
 }
 
+.container
+{
+  width: 100%;
+  padding-right: 0px;
+  padding-left: opx;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .noticia-grid
 {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
+  grid-gap: 50px 20px;
 }
 
 @media (min-width: 576px)
@@ -17,6 +27,14 @@ body
   {
     grid-template-columns: repeat(4, 1fr);
   }
+
+  .container
+  {
+    max-width: 1310px;
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
 }
 
 html, body { height: 100%; }

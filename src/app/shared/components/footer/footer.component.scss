@@ -1,0 +1,62 @@
+
+.main-footer
+{
+  background-color: #882d2d;
+  padding: 1rem 2rem .5rem;
+  color: white;
+}
+
+.main-footer a
+{
+  color: white;
+  text-decoration: none;
+}
+
+ul.social
+{
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+}
+
+ul.social li
+{
+  margin: .7rem;
+}
+
+.svg-inline--fa
+{
+  font-size: 2.3rem;
+  color:#a1cdce;
+}
+
+.sm.svg-inline--fa
+{
+  font-size: 1rem;
+}
+
+.brand
+{
+  height: 7rem;
+  margin: 1.5rem auto;
+  border-radius: 20%;
+}
+
+.quote-image
+{
+  height: 4rem;
+  border-radius: 20%;
+}
+
+.follow
+{
+  margin-top: 7.2rem;
+}
+
+.socket
+{
+  background-color: #000000;
+  border-top: .1rem solid #56a3a6;
+  color: #FFFFFF;
+}

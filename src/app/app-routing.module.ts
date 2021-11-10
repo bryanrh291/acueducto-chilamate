@@ -38,10 +38,14 @@ const routes: Routes =
         path: 'proveedores',component:ProveedoresComponent,
         canActivate:[AdminGuard]
       },
-      {
-        path: '**',component:PageNotFoundComponent
-      }
     ]
+  },
+  {
+        path:'admin',
+        loadChildren: () => import ('./admin/admin.module').then(m=>m.AdminModule)
+  },
+  {
+        path: '**',component:PageNotFoundComponent
   },
 
 ];

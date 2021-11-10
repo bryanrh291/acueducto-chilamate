@@ -20,6 +20,15 @@ export class NoticiasService {
       id:'2',
       titulo:'Noticia 2',
       descripcion:'desc Noticia 2',
+      imagenes:['https://www.themoviedb.org/t/p/w600_and_h900_bestv2/psDcRgUX38cIeGeADwLRPyO7SYC.jpg','https://www.themoviedb.org/t/p/w600_and_h900_bestv2/gGEsBPAijhVUFoiNpgZXqRVWJt2.jpg'],
+      categoria:"",
+      usuario:"",
+      fecha: ""
+    },
+    {
+      id:'3',
+      titulo:'Noticia 3',
+      descripcion:'desc Noticia 3',
       imagenes:['https://www.themoviedb.org/t/p/w600_and_h900_bestv2/gGEsBPAijhVUFoiNpgZXqRVWJt2.jpg','https://www.themoviedb.org/t/p/w600_and_h900_bestv2/gGEsBPAijhVUFoiNpgZXqRVWJt2.jpg'],
       categoria:"",
       usuario:"",
@@ -33,7 +42,35 @@ export class NoticiasService {
       categoria:"",
       usuario:"",
       fecha: ""
-    }
+    },
+    {
+      id:'3',
+      titulo:'Noticia 3',
+      descripcion:'desc Noticia 3',
+      imagenes:['https://www.themoviedb.org/t/p/w600_and_h900_bestv2/gGEsBPAijhVUFoiNpgZXqRVWJt2.jpg','https://www.themoviedb.org/t/p/w600_and_h900_bestv2/gGEsBPAijhVUFoiNpgZXqRVWJt2.jpg'],
+      categoria:"",
+      usuario:"",
+      fecha: ""
+    },
+    {
+      id:'3',
+      titulo:'Noticia 3',
+      descripcion:'desc Noticia 3',
+      imagenes:['https://www.themoviedb.org/t/p/w600_and_h900_bestv2/gGEsBPAijhVUFoiNpgZXqRVWJt2.jpg','https://www.themoviedb.org/t/p/w600_and_h900_bestv2/gGEsBPAijhVUFoiNpgZXqRVWJt2.jpg'],
+      categoria:"",
+      usuario:"",
+      fecha: ""
+    },
+    {
+      id:'7',
+      titulo:'Noticia 7',
+      descripcion:'desc Noticia 7',
+      imagenes:['https://www.themoviedb.org/t/p/w600_and_h900_bestv2/ic0intvXZSfBlYPIvWXpU1ivUCO.jpg','https://www.themoviedb.org/t/p/w600_and_h900_bestv2/ic0intvXZSfBlYPIvWXpU1ivUCO.jpg'],
+      categoria:"",
+      usuario:"",
+      fecha: ""
+    },
+
   ];
 
   constructor() { }

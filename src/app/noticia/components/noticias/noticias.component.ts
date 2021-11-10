@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Noticia } from '../../models/noticia.model';
+import { NoticiasService } from '../../../core/services/noticias/noticias.service';
 
 @Component({
   selector: 'app-noticias',
@@ -8,39 +9,14 @@ import { Noticia } from '../../models/noticia.model';
 })
 export class NoticiasComponent implements OnInit {
 
-  constructor() { }
+  noticias:Noticia[] = [];
+
+  constructor(
+    private noticiasService:NoticiasService
+  ) { }
 
   ngOnInit(): void {
+    this.noticias = this.noticiasService.getAllNoticias();
   }
-
-  noticias: Noticia[]=[
-    {
-      id:'1',
-      titulo:'Noticia 1',
-      descripcion:'desc Noticia 1',
-      imagenes:['https://www.themoviedb.org/t/p/w600_and_h900_bestv2/gGEsBPAijhVUFoiNpgZXqRVWJt2.jpg','https://www.themoviedb.org/t/p/w600_and_h900_bestv2/gGEsBPAijhVUFoiNpgZXqRVWJt2.jpg'],
-      categoria:"",
-      usuario:"",
-      fecha: ""
-    },
-    {
-      id:'2',
-      titulo:'Noticia 2',
-      descripcion:'desc Noticia 2',
-      imagenes:['https://www.themoviedb.org/t/p/w600_and_h900_bestv2/gGEsBPAijhVUFoiNpgZXqRVWJt2.jpg','https://www.themoviedb.org/t/p/w600_and_h900_bestv2/gGEsBPAijhVUFoiNpgZXqRVWJt2.jpg'],
-      categoria:"",
-      usuario:"",
-      fecha: ""
-    },
-    {
-      id:'3',
-      titulo:'Noticia 3',
-      descripcion:'desc Noticia 3',
-      imagenes:['https://www.themoviedb.org/t/p/w600_and_h900_bestv2/gGEsBPAijhVUFoiNpgZXqRVWJt2.jpg','https://www.themoviedb.org/t/p/w600_and_h900_bestv2/gGEsBPAijhVUFoiNpgZXqRVWJt2.jpg'],
-      categoria:"",
-      usuario:"",
-      fecha: ""
-    }
-  ];
 
 }

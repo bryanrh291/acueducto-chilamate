@@ -1,8 +1,37 @@
 
-<div class="swiper-container">
+<swiper [spaceBetween]="30"
+    [centeredSlides]="true"
+    [autoplay]="{
+      delay: 3000,
+      disableOnInteraction: false
+    }"
+    [pagination]="{
+      clickable: true
+    }"
+    [navigation]="true"
+    class="mySwiper">
+
+    <ng-template swiperSlide *ngFor="let img of images">
+      <img [src]="img" alt="imagen banner">
+
+    </ng-template>
+
+</swiper>
+
+<!--<div class="swiper-container" spaceBetween="30"
+    centeredSlides="true"
+    autoplay="{
+      delay: 2500,
+      disableOnInteraction: false
+    }"
+    pagination="{
+      clickable: true
+    }"
+    navigation="true"
+    class="mySwiper">
   <div class="swiper-wrapper">
     <div class="swiper-slide" *ngFor="let img of images">
       <img [src]="img" alt="imagen banner">
     </div>
   </div>
-</div>
+</div>-->
