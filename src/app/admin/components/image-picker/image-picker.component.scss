@@ -1,14 +1,13 @@
-
 .crop-image
 {
-  height: 500px;
+  height: 300px;
   width: 100%;
   overflow: hidden;
   position: relative;
   img
   {
     position: absolute;
-    border-radius: 4%;
+    border-radius: 8%;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);

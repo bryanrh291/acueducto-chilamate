@@ -1,0 +1,126 @@
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Noticia } from '../../../noticia/models/noticia.model';
+import { environment } from '../../../../environments/environment';
+import { initializeApp } from 'firebase/app';
+import {getFirestore,collection,getDocs} from 'firebase/firestore/lite';
+
+@Injectable({
+  providedIn: 'root'
+})
+
+const app = initializeApp(environment.firebase);
+const db = getFirestore(app);
+
+async function getAllNoticiasFs()
+{
+    const noticiasCol = collection(db,'noticias');
+    const noticiasSnapshot = await getDocs(noticiasCol);
+    const noticiasList = noticiasSnapshot.docs.map(doc=>doc.data());
+    return noticiasList;
+}
+
+export class NoticiasService {
+
+  url_api = environment.url_api;
+
+
+
+  noticias: Noticia[]=[
+    {
+      id:'1',
+      titulo:'Noticia 1',
+      descripcion:'desc Noticia 1',
+      imagenes:['https://www.themoviedb.org/t/p/w600_and_h900_bestv2/gGEsBPAijhVUFoiNpgZXqRVWJt2.jpg','https://www.themoviedb.org/t/p/w600_and_h900_bestv2/gGEsBPAijhVUFoiNpgZXqRVWJt2.jpg'],
+      categoria:"",
+      usuario:"",
+      fecha: ""
+    },
+    {
+      id:'2',
+      titulo:'Noticia 2',
+      descripcion:'desc Noticia 2',
+      imagenes:['https://www.themoviedb.org/t/p/w600_and_h900_bestv2/psDcRgUX38cIeGeADwLRPyO7SYC.jpg','https://www.themoviedb.org/t/p/w600_and_h900_bestv2/gGEsBPAijhVUFoiNpgZXqRVWJt2.jpg'],
+      categoria:"",
+      usuario:"",
+      fecha: ""
+    },
+    {
+      id:'3',
+      titulo:'Noticia 3',
+      descripcion:'desc Noticia 3',
+      imagenes:['https://www.themoviedb.org/t/p/w600_and_h900_bestv2/gGEsBPAijhVUFoiNpgZXqRVWJt2.jpg','https://www.themoviedb.org/t/p/w600_and_h900_bestv2/gGEsBPAijhVUFoiNpgZXqRVWJt2.jpg'],
+      categoria:"",
+      usuario:"",
+      fecha: ""
+    },
+    {
+      id:'3',
+      titulo:'Noticia 3',
+      descripcion:'desc Noticia 3',
+      imagenes:['https://www.themoviedb.org/t/p/w600_and_h900_bestv2/gGEsBPAijhVUFoiNpgZXqRVWJt2.jpg','https://www.themoviedb.org/t/p/w600_and_h900_bestv2/gGEsBPAijhVUFoiNpgZXqRVWJt2.jpg'],
+      categoria:"",
+      usuario:"",
+      fecha: ""
+    },
+    {
+      id:'3',
+      titulo:'Noticia 3',
+      descripcion:'desc Noticia 3',
+      imagenes:['https://www.themoviedb.org/t/p/w600_and_h900_bestv2/gGEsBPAijhVUFoiNpgZXqRVWJt2.jpg','https://www.themoviedb.org/t/p/w600_and_h900_bestv2/gGEsBPAijhVUFoiNpgZXqRVWJt2.jpg'],
+      categoria:"",
+      usuario:"",
+      fecha: ""
+    },
+    {
+      id:'3',
+      titulo:'Noticia 3',
+      descripcion:'desc Noticia 3',
+      imagenes:['https://www.themoviedb.org/t/p/w600_and_h900_bestv2/gGEsBPAijhVUFoiNpgZXqRVWJt2.jpg','https://www.themoviedb.org/t/p/w600_and_h900_bestv2/gGEsBPAijhVUFoiNpgZXqRVWJt2.jpg'],
+      categoria:"",
+      usuario:"",
+      fecha: ""
+    },
+    {
+      id:'7',
+      titulo:'Noticia 7',
+      descripcion:'desc Noticia 7',
+      imagenes:['https://www.themoviedb.org/t/p/w600_and_h900_bestv2/ic0intvXZSfBlYPIvWXpU1ivUCO.jpg','https://www.themoviedb.org/t/p/w600_and_h900_bestv2/ic0intvXZSfBlYPIvWXpU1ivUCO.jpg'],
+      categoria:"",
+      usuario:"",
+      fecha: ""
+    },
+
+  ];
+
+  constructor(
+    private http:HttpClient
+  ) { }
+
+  getAllNoticias()
+  {
+    return getAllNoticiasFs();
+  }
+
+  getNoticia(id:string)
+  {
+    return this.http.get<Noticia>(`${this.url_api}/noticias/${id}`);
+    //return this.noticias.find(nt => id ===nt.id);
+  }
+
+  createNoticia(noticia:Noticia)
+  {
+    return this.http.post(`${this.url_api}/noticias`,noticia);
+  }
+
+  updateNoticia(id:string , changes:Partial<Noticia>)
+  {
+    return this.http.put(`${this.url_api}/noticias/${id}`,changes);
+  }
+
+  deleteNoticia(id:string)
+  {
+    return this.http.delete(`${this.url_api}/noticias/${id}`);
+  }
+
+}

@@ -21,17 +21,17 @@ export class NoticiaDetailComponent implements OnInit {
     this.route.params.subscribe((params:Params)=>
     {
       const id = params.id;
-      const noti = this.noticiasService.getNoticia(id);
-      if(noti !== undefined)
-      {
-        this.noticia = noti;
-        console.log('no es indefinido');
-      }
-      else
-      {
-        console.log('es indefinido');
-      }
+      this.fetchNoticia(id);
     });
+  }
+
+  fetchNoticia(id:string)
+  {
+    const noti = this.noticiasService.getNoticia(id);
+    if( noti !== undefined)
+    {
+      this.noticia = noti;
+    }
   }
 
 }

@@ -1,0 +1,30 @@
+
+<table mat-table [dataSource]="noticias" class="mat-elevation-z8 products-table">
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>Id</th>
+    <td mat-cell *matHeaderCellDef="let noticia">{{noticia.id}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="título">
+    <th mat-header-cell *matHeaderCellDef>Título</th>
+    <td mat-cell *matHeaderCellDef="let noticia">{{noticia.titulo}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="fecha">
+    <th mat-header-cell *matHeaderCellDef>Fecha</th>
+    <td mat-cell *matHeaderCellDef="let noticia">{{noticia.fecha}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="acciones">
+    <th mat-header-cell *matHeaderCellDef>Acciones</th>
+    <td mat-cell *matHeaderCellDef="let noticia">
+      <button mat-button>Editar</button>
+      <button mat-raised-button color="warn" (click)="deleteNoticia(noticia.id)">Eliminar</button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns:displayedColumns;"></tr>
+
+</table>

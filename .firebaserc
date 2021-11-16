@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "acueducto-chilamate": {
+      "hosting": {
+        "acueducto-chilamate": [
+          "acueducto-chilamate"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "acueducto-chilamate"
+  }
+}

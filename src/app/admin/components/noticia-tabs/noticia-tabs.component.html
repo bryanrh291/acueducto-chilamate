@@ -1,0 +1,25 @@
+<!--<nav mat-tab-nav-bar>
+  <a mat-tab-link label="Listado" routerLink="" routerLinkActive="active"></a>
+  <a mat-tab-link label="Creación" routerLink="" routerLinkActive="active"></a>
+</nav>-->
+
+<mat-tab-group>
+
+  <mat-tab label="Listado">
+    <ng-template matTabContent>
+      <app-noticias-list></app-noticias-list>
+    </ng-template>
+
+
+  </mat-tab>
+
+  <mat-tab label="Creación">
+    <ng-template matTabContent>
+      <app-noticia-form></app-noticia-form>
+    </ng-template>
+
+  </mat-tab>
+
+
+
+</mat-tab-group>

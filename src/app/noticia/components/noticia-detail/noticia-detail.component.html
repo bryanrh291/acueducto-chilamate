@@ -1,11 +1,21 @@
-<div>
-  <ul>
-    <li>Título: {{noticia.titulo}}</li>
-    <li>Descripcion: {{noticia.descripcion}}</li>
-    <li>Fecha: {{noticia.fecha}}</li>
-  </ul>
-</div>
 
-<div>
-  <img *ngFor="let img of noticia.imagenes" [src]="img" alt="imagen noticia">
-</div>
+<mat-card *ngIf="noticia">
+  <mat-card-header>
+    <mat-card-title>{{noticia.titulo | uppercase}}</mat-card-title>
+    <mat-card-subtitle></mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>{{noticia.descripcion }}</p>
+    <p>{{noticia.fecha}}</p>
+  </mat-card-content>
+  <h2>Fotos: </h2>
+  <div class="noticia-grid">
+    <div *ngFor="let img of noticia.imagenes" class="crop-image">
+      <img class="" [src]="img" alt="imagen">
+    </div>
+  </div>
+  <mat-card-actions>
+    <button mat-raised-button color="warn"> <a [routerLink]="['/noticias/']">Volver Atrás</a></button>
+  </mat-card-actions>
+</mat-card>
+

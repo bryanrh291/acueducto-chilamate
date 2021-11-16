@@ -1,0 +1,36 @@
+
+<form class="py-2 text-center" [formGroup]="form" (ngSubmit)="login($event)">
+  <mat-card class="">
+    <mat-card-header>
+      <mat-card-title>Iniciar Sesión</mat-card-title>
+    </mat-card-header>
+
+    <mat-icon class="icon_display">account_circle</mat-icon>
+
+    <mat-card-content>
+
+      <div class="row">
+        <div class="col-xs">
+          <mat-form-field>
+            <input placeholder="correo" formControlName="email" matInput type="email">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs">
+          <mat-form-field>
+            <input placeholder="Contraseña" formControlName="password" matInput type="password">
+          </mat-form-field>
+        </div>
+      </div>
+
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button type="submit">Iniciar Sesión</button>
+      <button mat-raised-button>Recuperar Contraseña</button>
+    </mat-card-actions>
+
+  </mat-card>
+</form>

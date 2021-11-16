@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NoticiaFormComponent } from './components/noticia-form/noticia-form.component';
-import { NavComponent } from './components/nav/nav.component'
+import { NavComponent } from './components/nav/nav.component';
+import { InicioComponent } from './components/inicio/inicio.component';
+import { LoginComponent } from './components/login/login.component';
+import { NoticiaTabsComponent } from './components/noticia-tabs/noticia-tabs.component';
 
 const routes: Routes = [
   {
@@ -9,10 +11,18 @@ const routes: Routes = [
     component:NavComponent,
     children:[
       {
-        path:'noticias/create',
-        component:NoticiaFormComponent
-      }
+        path:'',
+        component:InicioComponent
+      },
+      {
+        path:'noticias',
+        component:NoticiaTabsComponent
+      },
     ]
+  },
+  {
+    path:'login',
+    component:LoginComponent
   }
 ];
 

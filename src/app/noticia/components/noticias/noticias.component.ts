@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Noticia } from '../../models/noticia.model';
 import { NoticiasService } from '../../../core/services/noticias/noticias.service';
 
+
 @Component({
   selector: 'app-noticias',
   templateUrl: './noticias.component.html',
@@ -12,10 +13,15 @@ export class NoticiasComponent implements OnInit {
   noticias:Noticia[] = [];
 
   constructor(
-    private noticiasService:NoticiasService
+    private noticiasService:NoticiasService,
   ) { }
 
   ngOnInit(): void {
+    this.fetchNoticias();
+  }
+
+  fetchNoticias()
+  {
     this.noticias = this.noticiasService.getAllNoticias();
   }
 

@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Eliga Una Imagen</h1>
+<div mat-dialog-content>
+  <p>Ingrese el enlace para la imagen de la noticia</p>
+  <mat-form-field appearance="fill">
+    <mat-label>Favorite Animal</mat-label>
+    <input matInput [(ngModel)]="data.animal">
+  </mat-form-field>
+</div>
+<img *ngIf="image_url !==''" [src]=image_url alt="imagen">
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button mat-button [mat-dialog-close]="data.image_url" cdkFocusInitial>Agregar Imagen</button>
+</div>
