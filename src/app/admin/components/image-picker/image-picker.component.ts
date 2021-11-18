@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 export interface DialogData
 {
@@ -13,10 +14,10 @@ export interface DialogData
 })
 export class ImagePickerComponent implements OnInit {
 
-  invalid_image:boolean = false;
+  invalid_image:boolean = true;
   image_url:string = '';
 
-  constructor(public dialogRef: MatDialogRef<ImagePickerComponent>,
+  constructor(public _snackBar: MatSnackBar,public dialogRef: MatDialogRef<ImagePickerComponent>,
     @Inject(MAT_DIALOG_DATA) public data:DialogData) { }
 
   ngOnInit(): void {
@@ -31,14 +32,11 @@ export class ImagePickerComponent implements OnInit {
   handleError()
   {
     this.invalid_image = true;
-    //console.log(image);
   }
 
   resetImage()
   {
     this.invalid_image = false;
-    console.log('reset image: ');
-    console.log(this.invalid_image);
   }
 
 }

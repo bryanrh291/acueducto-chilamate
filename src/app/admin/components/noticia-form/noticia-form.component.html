@@ -1,8 +1,8 @@
 
-<form [formGroup]="form" (ngSubmit)="saveNoticia($event)">
+<form [formGroup]="form" (ngSubmit)="saveNoticia($event)" class="mat-elevation-z8 noticia-form" >
   <mat-card>
     <mat-card-header>
-      <mat-card-title>Noticia</mat-card-title>
+      <mat-card-title> Nueva Noticia</mat-card-title>
     </mat-card-header>
 
     <mat-card-content>
@@ -43,14 +43,34 @@
       <div class="row">
         <div class="col-xs">
           <h3>Imagenes: </h3>
-          <button mat-raised-button color="primary" (click)="openDialog()"> Agregar Imagen</button>
+          <button mat-raised-button color="primary" type="button" (click)="openDialog()"> Agregar Imagen</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div *ngFor="let img of imagenes;index as i" class="col-xs">
+          <mat-card>
+            <mat-card-header>
+              <mat-card-title>Imagen #{{i+1}}:</mat-card-title>
+            </mat-card-header>
+            <div class="crop-image">
+              <img [src]='img' alt="imagen">
+            </div>
+            <mat-card-content>
+              <a routerLink="{{img}}" target="_blank"> <small>{{img}}</small> </a>
+
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-raised-button color="warn" (click)="removeImage(i)" type="button" >Eliminar</button>
+            </mat-card-actions>
+          </mat-card>
         </div>
       </div>
 
     </mat-card-content>
 
     <mat-card-actions>
-      <button mat-raised-button type="submit">Guardar</button>
+      <button mat-raised-button color="primary" type="submit">Guardar Noticia</button>
     </mat-card-actions>
 
   </mat-card>

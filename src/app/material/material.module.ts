@@ -15,6 +15,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { LayoutModule } from '@angular/cdk/layout';
 
 
@@ -38,6 +39,7 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatTabsModule,
     MatDialogModule,
     MatFormFieldModule,
+    MatSnackBarModule,
   ],
   exports:[
     MatButtonModule,
@@ -56,6 +58,7 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatTabsModule,
     MatDialogModule,
     MatFormFieldModule,
+    MatSnackBarModule,
   ]
 })
 export class MaterialModule { }

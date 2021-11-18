@@ -1,7 +1,7 @@
 import { Injectable, OnInit } from '@angular/core';
 import { initializeApp } from 'firebase/app';
-import { getFirestore } from 'firebase/firestore';
-import { doc, getDoc, collection, getDocs } from "firebase/firestore";
+import { getFirestore, serverTimestamp } from 'firebase/firestore';
+import { addDoc,doc, getDoc, collection, getDocs } from "firebase/firestore";
 import { environment } from '../../../../environments/environment';
 import { Noticia } from '../../../noticia/models/noticia.model';
 
@@ -31,17 +31,33 @@ async function getNoticiasFs() {
 
 }
 
-async function getNoticiaFs(id:string) {
+async function addNoticiaFs(noticia:Partial<Noticia>)
+{
+  const docRef = await addDoc(collection(db,"noticias"),
+  {
+    categoria:noticia.categoria,
+    descripcion:noticia.descripcion,
+    fecha:noticia.fecha,
+    imagenes:noticia.imagenes,
+    titulo:noticia.titulo,
+    usuario:noticia.usuario,
+    fecha_creacion:serverTimestamp()
+  });
 
-  noticia.splice(0,noticias.length);
+  return docRef;
+}
+
+async function getNoticiaFs(id:string) {
+  noticia.splice(0,noticia.length);
 
   const docRef = doc(db,"noticias",id);
   const docSnap = await getDoc(docRef);
+  let noti:Noticia;
 
   if(docSnap.exists())
   {
     const data = docSnap.data();
-    const noti:Noticia = {
+    noti = {
       id:docSnap.id,
       categoria:data.categoria,
       descripcion:data.descripcion,
@@ -50,12 +66,10 @@ async function getNoticiaFs(id:string) {
       titulo:data.titulo,
       usuario:data.usuario
      };
-    noticia.push(noti);
   }
   else
   {
-
-    const noti:Noticia = {
+    noti = {
       id:'',
       categoria:'',
       descripcion:'',
@@ -64,12 +78,11 @@ async function getNoticiaFs(id:string) {
       titulo:'',
       usuario:''
      };
-
-     noticia.push(noti);
   }
-
-  return noticia[0];
-
+  console.log('getNoticiaFs');
+  console.log(noti);
+  noticia.push(noti);
+  return noti;
 }
 
 
@@ -93,32 +106,12 @@ export class NoticiasService implements OnInit{
 
    getNoticia(id:string)
    {
-     getNoticiasFs();
-     const data = noticias.find( noti => noti.id === id);
+     return getNoticiaFs(id);
+    }
 
-     if(data !== undefined)
-     {
-       return data;
-     }
-     else
-     {
-       getNoticiaFs(id).then(nt=> {
-        console.log(nt);
-        const ntp:Noticia = {
-          id:nt.id,
-          categoria:nt.categoria,
-          descripcion:nt.descripcion,
-          fecha:nt.fecha,
-          imagenes:nt.imagenes,
-          titulo:nt.titulo,
-          usuario:nt.usuario
-        };
-        return ntp;
-        });
-       return noticia[0];
-
-     };
-
+   addNoticia(noticia:Partial<Noticia>)
+   {
+     return addNoticiaFs(noticia);
    }
 
 }

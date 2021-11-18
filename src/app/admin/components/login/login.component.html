@@ -20,7 +20,12 @@
       <div class="row">
         <div class="col-xs">
           <mat-form-field>
-            <input placeholder="Contraseña" formControlName="password" matInput type="password">
+            <mat-label>Contraseña</mat-label>
+            <input matInput formControlName="password" [type]="hidePassword?'password':'text'">
+            <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword"
+            [attr.aria-label]="'ocultar contraseña'" [attr.aria-pressed]="'ocultar'" >
+            <mat-icon>{{hidePassword?'visibility_off':'visibility'}}</mat-icon>
+          </button>
           </mat-form-field>
         </div>
       </div>
@@ -28,7 +33,7 @@
     </mat-card-content>
 
     <mat-card-actions>
-      <button mat-raised-button type="submit">Iniciar Sesión</button>
+      <button mat-raised-button color="primary" type="submit">Iniciar Sesión</button>
       <button mat-raised-button>Recuperar Contraseña</button>
     </mat-card-actions>
 

@@ -1,11 +1,15 @@
-import { Component,Inject } from '@angular/core';
+import { Component,Inject, Input } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { Route, Router } from '@angular/router'
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MaterialModule } from '../../../material/material.module'
 import { NoticiasService } from '../../../core/services/noticias/noticias.service';
 import { componentFactoryName } from '@angular/compiler';
 import { inject } from '@angular/core/testing';
 import { ImagePickerComponent } from '../image-picker/image-picker.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Noticia } from 'src/app/noticia/models/noticia.model';
+
 
 export interface DialogData
 {
@@ -24,7 +28,8 @@ export class NoticiaFormComponent {
 
   form: FormGroup = this.fb.group({});
 
-  constructor(private fb: FormBuilder , public dialog:MatDialog)
+  constructor(private fb: FormBuilder , public dialog:MatDialog,
+  private _snackBar: MatSnackBar, public noticiaService:NoticiasService)
   {
     this.buildForm();
   }
@@ -38,18 +43,38 @@ export class NoticiaFormComponent {
         fecha:['',[Validators.required]],
         imagenes:[[],[Validators.required]],
         categoria:['',[Validators.required]],
-        usuario:['',[Validators.required]]
+        usuario:['admin',[Validators.required]]
       });
   }
 
   saveNoticia(event:Event)
   {
     event.preventDefault();
+    console.log('form value: ');
     console.log(this.form.value);
 
-    if(this.form.valid)
+    if(this.imagenes.length !==0)
     {
-
+      this.form.patchValue({imagenes:this.imagenes});
+      if(this.form.valid)
+      {
+        const nt = this.form.value;
+        this.noticiaService.addNoticia(nt).then(result=>
+          {
+            console.log('resultado creacion: ');
+            console.log(result);
+            this._snackBar.open('Noticia agregada con éxito','Aceptar',{duration:3000});
+          });
+      }
+      else
+      {
+        alert('is not valid!');
+      }
+    }
+    else
+    {
+     this._snackBar.open('Debe ingresar al menos una imagen',
+     'Aceptar',{duration:3000});
     }
 
   }
@@ -63,8 +88,18 @@ export class NoticiaFormComponent {
       });
     dialogRef.afterClosed().subscribe(result=>
       {
-        this.image_url = result;
+        if(result !== undefined)
+        {
+          this.imagenes.push(result);
+          this._snackBar.open('Imagen Agregada','Aceptar',{duration:3000});
+        }
       })
+  }
+
+  removeImage(index:number)
+  {
+    this.imagenes.splice(index,1);
+    this._snackBar.open('Imagen Eliminada','Aceptar',{duration:3000});
   }
 
   onSubmit(): void {

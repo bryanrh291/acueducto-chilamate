@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../../../core/services/auth/auth.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -9,8 +12,9 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 export class LoginComponent implements OnInit {
 
   form: FormGroup = this.fb.group({});
+  hidePassword:boolean = true;
 
-  constructor(private fb: FormBuilder)
+  constructor(public router:Router,public _snackBar: MatSnackBar,private fb: FormBuilder, private authS:AuthService)
   {
     this.buildForm();
   }
@@ -31,7 +35,18 @@ export class LoginComponent implements OnInit {
 
     if(this.form.valid)
     {
-
+      this.authS.signInUser(this.form.get('email')?.value,this.form.get('password')?.value).then(result =>
+        {
+          console.log('login result:');
+          this._snackBar.open('Has iniciado sesión de manera exitosa','Aceptar',{duration:3000});
+          console.log(result);
+          this.router.navigate(['admin']);
+        }).catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          this._snackBar.open(`Error al iniciar sesión: ${errorMessage}`,'Aceptar',{duration:4000});
+          // ..
+        });
     }
 
   }

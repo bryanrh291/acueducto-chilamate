@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute,Params } from '@angular/router';
 import { Noticia } from '../../models/noticia.model';
 import { NoticiasService } from '../../../core/services/noticias/noticias.service';
+import { not } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-noticia-detail',
@@ -11,6 +12,7 @@ import { NoticiasService } from '../../../core/services/noticias/noticias.servic
 export class NoticiaDetailComponent implements OnInit {
 
   noticia:Noticia = {id:'',categoria:'',fecha:'',descripcion:'',imagenes:[''],titulo:'',usuario:''};
+  noticias:Noticia[]=[this.noticia];
 
   constructor(
     private route:ActivatedRoute,
@@ -27,11 +29,12 @@ export class NoticiaDetailComponent implements OnInit {
 
   fetchNoticia(id:string)
   {
-    const noti = this.noticiasService.getNoticia(id);
-    if( noti !== undefined)
-    {
-      this.noticia = noti;
-    }
+    this.noticiasService.getNoticia(id).then(result=>
+      {
+        this.noticia = result;
+        console.log('result');
+        console.log(result);
+      });
   }
 
 }

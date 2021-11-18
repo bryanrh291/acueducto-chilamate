@@ -3,15 +3,19 @@
   <p>Ingrese el enlace para la imagen de la noticia</p>
   <mat-form-field appearance="fill">
     <mat-label>Enlace Imagen</mat-label>
-    <input (ngModelChange)="resetImage()" matInput [(ngModel)]="image_url">
+    <input #inputImg (ngModelChange)="resetImage()" matInput [(ngModel)]="image_url">
   </mat-form-field>
 </div>
 <div class="crop-image">
   <img #refImg *ngIf="image_url !=='' && !invalid_image " (error)="handleError()" [src]=image_url alt="imagen">
-  <p color="red" *ngIf="invalid_image">No es una imagen válida!</p>
+  <p color="red" *ngIf="invalid_image">Ingrese una imagen válida!</p>
 </div>
 
 <div mat-dialog-actions>
-  <button mat-raised-button color="primary" [mat-dialog-close]="image_url" cdkFocusInitial>Agregar Imagen</button>
+  <button mat-raised-button color="primary" [disabled]="invalid_image"
+  [mat-dialog-close]="image_url" cdkFocusInitial>
+  Agregar Imagen
+  </button>
+
   <button mat-button (click)="onNoClick()">Cancelar</button>
 </div>
