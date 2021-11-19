@@ -79,8 +79,6 @@ async function getNoticiaFs(id:string) {
       usuario:''
      };
   }
-  console.log('getNoticiaFs');
-  console.log(noti);
   noticia.push(noti);
   return noti;
 }

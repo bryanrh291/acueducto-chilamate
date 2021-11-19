@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute,Params } from '@angular/router';
 import { Noticia } from '../../models/noticia.model';
 import { NoticiasService } from '../../../core/services/noticias/noticias.service';
-import { not } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-noticia-detail',
