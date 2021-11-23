@@ -1,0 +1,18 @@
+
+<mat-card>
+  <mat-card-title>Junta Directiva</mat-card-title>
+  <mat-card-content>
+    <div class="row">
+      <div class="col-3" *ngFor="let mj of junta_directiva">
+        <h3>{{mj.nombre}}</h3>
+        <p>{{mj.cargo}}</p>
+        <div class="crop-image">
+          <img src={{mj.imagen}} alt="img">
+        </div>
+
+        <p *ngIf="mj.correo!==''">Correo: <a href="mailto: {{mj.correo}}">{{mj.correo}}</a></p>
+        <p *ngIf="mj.telefono!==''">Teléfono: <a href="tel: {{mj.telefono}}">{{mj.telefono}}</a></p>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

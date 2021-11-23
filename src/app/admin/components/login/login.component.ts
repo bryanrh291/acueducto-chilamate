@@ -44,6 +44,8 @@ export class LoginComponent implements OnInit {
         }).catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
+          console.log('Código de error: ');
+          console.log(errorCode);
           this._snackBar.open(`Error al iniciar sesión: ${errorMessage}`,'Aceptar',{duration:4000});
           // ..
         });

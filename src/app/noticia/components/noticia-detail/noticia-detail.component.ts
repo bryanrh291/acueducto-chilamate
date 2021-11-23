@@ -31,8 +31,6 @@ export class NoticiaDetailComponent implements OnInit {
     this.noticiasService.getNoticia(id).then(result=>
       {
         this.noticia = result;
-        console.log('result');
-        console.log(result);
       });
   }
 

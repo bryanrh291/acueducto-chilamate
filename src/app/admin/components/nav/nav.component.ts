@@ -1,14 +1,25 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
+import { AuthService } from '../../../core/services/auth/auth.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss']
 })
-export class NavComponent {
+export class NavComponent implements OnInit{
+
+  currentUser:any = '';
+
+  ngOnInit(): void {
+    this.currentUser = this.authS.currentUser();
+    console.log('currentUser: ');
+    console.log(this.currentUser);
+  }
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -16,6 +27,21 @@ export class NavComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(public router:Router,public _snackBar: MatSnackBar,private breakpointObserver: BreakpointObserver,private authS:AuthService) {}
+
+  cerrarSesion()
+  {
+    this.authS.signOutUser().then((result) => {
+    // Sign-out successful.
+    console.log('Ha cerrado sesión');
+    this._snackBar.open('Has cerrado sesión de manera exitosa','Aceptar',{duration:3000});
+    this.router.navigate(['admin/login']);
+    console.log(result);
+    }).catch((error) => {
+    // An error happened.
+    console.log('Ha ocurrido un error');
+    console.log(error);
+    });
+  }
 
 }

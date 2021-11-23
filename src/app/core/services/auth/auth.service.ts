@@ -37,13 +37,18 @@ export class AuthService {
     });*/
   }
 
-  signOutUser(email:string,password:string)
+  signOutUser()
   {
     return signOut(this.auth);/*.then(() => {
     // Sign-out successful.
     }).catch((error) => {
     // An error happened.
     });*/
+  }
+
+  currentUser()
+  {
+    return this.auth.currentUser;
   }
 
 }

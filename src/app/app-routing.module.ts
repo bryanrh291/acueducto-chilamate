@@ -32,11 +32,8 @@ const routes: Routes =
         loadChildren: () => import ('./noticia/noticia.module').then(m=>m.NoticiaModule)
       },
       {
-        path: 'contacto',component:ContactoComponent,
-      },
-      {
-        path: 'proveedores',component:ProveedoresComponent,
-        canActivate:[AdminGuard]
+        path: 'info',
+        loadChildren: () => import ('./info/info.module').then(m=>m.InfoModule)
       },
     ]
   },

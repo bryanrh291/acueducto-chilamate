@@ -1,0 +1,18 @@
+<mat-card>
+  <mat-card-title>Contacto</mat-card-title>
+  <mat-card-content>
+    <h2>Teléfono de Contacto</h2>
+    <a href="tel: 27610121">27610121</a>
+    <mat-divider></mat-divider>
+    <h2 class="pt-4">Correos Coorporativos</h2>
+
+    <div class="row">
+      <div class="col-6" *ngFor="let m of mails">
+        <mat-icon>mail</mat-icon>
+        <h3>{{m.name}}</h3>
+        <a href='mailto: {{m.mail}}'  target="blank">{{m.mail}}</a>
+      </div>
+    </div>
+
+  </mat-card-content>
+</mat-card>

@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  url_api:'kddajf',
+  url_api:'',
   firebase: {
     projectId: 'acueducto-chilamate',
     appId: '1:924264418349:web:31d88f455906d09d373ca4',
