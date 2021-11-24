@@ -1,12 +1,28 @@
 <mat-card>
   <mat-card-title>Servicios</mat-card-title>
   <mat-card-content>
-    <ol>
-      <li>hi</li>
-      <li>hi</li>
-      <li>hi</li>
-      <li>hi</li>
-      <li>hi</li>
-    </ol>
+    <h2>Instrucciones para descargar las plantillas</h2>
+    <ul>
+      <li>Seleccionar el enlace de la plantilla que se desea descargar</li>
+      <li>Se abrirá una nueva pestaña en la plataforma Mega donde se encuentra el archivo</li>
+      <li>En la parte inferior derecha de la pantalla verá un botón de descarga</li>
+      <li>Selecciona descargar y se guardará el archivo en su dispositivo</li>
+    </ul>
+
+    <mat-accordion class="mat-elevation-z8">
+        <mat-expansion-panel class="mat-elevation-z8" *ngFor="let servicio of servicios">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{servicio.nombre}}
+            </mat-panel-title>
+
+          </mat-expansion-panel-header>
+
+          <p>Puede descargar el documento en formato DOC, haciendo CLIC en el siguiente enlace:</p>
+          <p><a href="{{servicio.enlace}}" target="_blank">Enlace al documento</a></p>
+
+        </mat-expansion-panel>
+    </mat-accordion>
+
   </mat-card-content>
 </mat-card>

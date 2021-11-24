@@ -1,9 +1,9 @@
 
 <mat-card>
-  <mat-card-title>Junta Directiva</mat-card-title>
+  <mat-card-title class="py-4">Junta Directiva</mat-card-title>
   <mat-card-content>
     <div class="row">
-      <div class="col-3" *ngFor="let mj of junta_directiva">
+      <div class="col-3 py-3" *ngFor="let mj of junta_directiva">
         <h3>{{mj.nombre}}</h3>
         <p>{{mj.cargo}}</p>
         <div class="crop-image">
