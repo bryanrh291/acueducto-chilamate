@@ -10,17 +10,19 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { MaterialModule } from '../material/material.module';
 import { LoginComponent } from './components/login/login.component';
 import { NoticiaTabsComponent } from './components/noticia-tabs/noticia-tabs.component';
-import { NoticaEditComponent } from './components/notica-edit/notica-edit.component';
+import { NoticiaEditComponent } from './components/noticia-edit/noticia-edit.component';
 import { ImagePickerComponent } from './components/image-picker/image-picker.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
-  declarations: [NoticiaFormComponent, NavComponent, NoticiasListComponent, InicioComponent, LoginComponent, NoticiaTabsComponent, NoticaEditComponent, ImagePickerComponent],
+  declarations: [NoticiaFormComponent, NavComponent, NoticiasListComponent, InicioComponent, LoginComponent, NoticiaTabsComponent, NoticiaEditComponent, ImagePickerComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,
     MaterialModule,
     ReactiveFormsModule,
     FormsModule,
+    SharedModule,
   ]
 })
 export class AdminModule { }

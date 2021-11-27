@@ -5,6 +5,7 @@ import { NoticiaComponent } from './components/noticia/noticia.component';
 import { NoticiaDetailComponent } from './components/noticia-detail/noticia-detail.component';
 import { NoticiasComponent } from './components/noticias/noticias.component';
 import { MaterialModule } from '../material/material.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { MaterialModule } from '../material/material.module';
   imports: [
     CommonModule,
     NoticiaRoutingModule,
-    MaterialModule
+    MaterialModule,
+    SharedModule
   ]
 })
 export class NoticiaModule { }

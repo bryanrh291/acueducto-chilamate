@@ -1,8 +1,8 @@
 
-<form [formGroup]="form" (ngSubmit)="saveNoticia($event)" class="mat-elevation-z8 noticia-form" >
+<form [formGroup]="form" (ngSubmit)="updateNoticia($event)" class="mat-elevation-z8 noticia-form">
   <mat-card>
     <mat-card-header>
-      <mat-card-title> Nueva Noticia</mat-card-title>
+      <mat-card-title> Editar Noticia</mat-card-title>
     </mat-card-header>
 
     <mat-card-content>
@@ -10,7 +10,7 @@
       <div class="row">
         <div class="col-xs">
           <mat-form-field>
-            <input formControlName="titulo" placeholder="Título"matInput type="text">
+            <input formControlName="titulo" placeholder="Título" matInput type="text">
           </mat-form-field>
         </div>
       </div>
@@ -52,7 +52,7 @@
 
       <div class="row">
         <div *ngFor="let img of imagenes;index as i" class="col-xs">
-          <mat-card>
+          <mat-card class="mat-elevation-z8">
             <mat-card-header>
               <mat-card-title>Imagen #{{i+1}}:</mat-card-title>
             </mat-card-header>
@@ -64,7 +64,7 @@
 
             </mat-card-content>
             <mat-card-actions>
-              <button mat-raised-button color="warn" (click)="removeImage(i)" type="button" >Eliminar</button>
+              <button mat-raised-button color="warn" (click)="removeImage(i)" type="button">Eliminar</button>
             </mat-card-actions>
           </mat-card>
         </div>
@@ -73,7 +73,7 @@
     </mat-card-content>
 
     <mat-card-actions>
-      <button mat-raised-button color="primary" type="submit">Guardar Noticia</button>
+      <button mat-raised-button color="primary" type="submit">Editar Noticia</button>
     </mat-card-actions>
 
   </mat-card>

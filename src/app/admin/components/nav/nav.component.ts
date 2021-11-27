@@ -13,10 +13,20 @@ import { Router } from '@angular/router';
 })
 export class NavComponent implements OnInit{
 
-  currentUser:any = '';
+  currentUser: any;
+  isAuthenticated: boolean = false;
 
   ngOnInit(): void {
-    this.currentUser = this.authS.currentUser();
+    this.authS.currentUser.subscribe((user)=>
+    {
+      this.currentUser = user;
+    });
+
+    this.authS.isAuthenticated.subscribe((autenticated)=>
+    {
+      this.isAuthenticated = autenticated;
+    });
+
     console.log('currentUser: ');
     console.log(this.currentUser);
   }

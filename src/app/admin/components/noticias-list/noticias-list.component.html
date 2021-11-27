@@ -1,5 +1,5 @@
 
-<table mat-table [dataSource]="noticias" class="mat-elevation-z8 noticias-table">
+<!--<table mat-table [dataSource]="noticias" class="mat-elevation-z8 noticias-table">
 
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef>Id</th>
@@ -28,4 +28,56 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns:displayedColumns;"></tr>
 
-</table>
+</table>-->
+
+<div class="container my-5">
+
+  <app-loading *ngIf="noticias==null"></app-loading>
+
+  <div *ngIf="noticias!=null" class="row justify-content-center">
+    <div class="col-12 my-2">
+      <h1 class="text-center">Noticias</h1>
+    </div>
+
+    <div class="col-12">
+
+      <table class="noticias-table table table-hover table-light">
+        <thead>
+          <tr>
+            <th class="th-scroll" scope="col">#</th>
+            <th class="th-scroll" scope="col">Título</th>
+            <th class="th-scroll" scope="col">Fecha</th>
+            <th class="th-scroll" scope="col">Clasificación</th>
+            <th class="th-scroll"></th>
+            <th class="th-scroll"></th>
+            <th class="th-scroll"></th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let not of noticias;index as i">
+          <tr>
+            <th scope="row">{{i+1}}</th>
+            <td>{{not.titulo}}</td>
+            <td>{{not.fecha}}</td>
+            <td>{{not.categoria}}</td>
+            <td *ngIf="not.estado;else falseState">
+              <mat-chip color="accent" >Habilitado</mat-chip>
+              <!--<span class="my-badge c-f">Habilitado</span>-->
+            </td>
+            <ng-template #falseState>
+              <td> <span class="my-badge c-pend">Deshabilitado</span></td>
+            </ng-template>
+
+            <td><button mat-raised-button color="primary" (click)="verDetalle(not.id)">Ver</button></td>
+            <td><a (click)="editNoticia(not.id)"><i class="fas fa-edit"></i></a></td>
+            <td>
+              <a *ngIf="not.estado" (click)="deleteNoticia(not.id)"><i class="delete-icon fas fa-trash-alt"></i></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+  </div>
+
+</div>

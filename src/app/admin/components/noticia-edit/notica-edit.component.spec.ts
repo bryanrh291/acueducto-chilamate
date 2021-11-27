@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NoticaEditComponent } from './notica-edit.component';
+import { NoticiaEditComponent } from './noticia-edit.component';
 
 describe('NoticaEditComponent', () => {
-  let component: NoticaEditComponent;
-  let fixture: ComponentFixture<NoticaEditComponent>;
+  let component: NoticiaEditComponent;
+  let fixture: ComponentFixture<NoticiaEditComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NoticaEditComponent ]
+      declarations: [ NoticiaEditComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NoticaEditComponent);
+    fixture = TestBed.createComponent(NoticiaEditComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,13 +1,13 @@
 
-<mat-card>
+<mat-card class="py-4">
   <mat-card-title>Transparencia</mat-card-title>
-  <mat-card-content>
-    <ol>
-      <li>hi</li>
-      <li>hi</li>
-      <li>hi</li>
-      <li>hi</li>
-      <li>hi</li>
-    </ol>
+  <mat-card-content class="py-4">
+    <mat-list>
+      <div mat-subheader>Estados Financieros</div>
+
+      <mat-list-item *ngFor="let est of estados_financieros">
+        <a href="{{est.url}}" target="_blank"> <i class="far fa-file-pdf mx-2"></i>  {{est.nombre}}</a>
+      </mat-list-item>
+    </mat-list>
   </mat-card-content>
 </mat-card>

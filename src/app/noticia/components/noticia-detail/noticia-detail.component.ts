@@ -10,7 +10,7 @@ import { NoticiasService } from '../../../core/services/noticias/noticias.servic
 })
 export class NoticiaDetailComponent implements OnInit {
 
-  noticia:Noticia = {id:'',categoria:'',fecha:'',descripcion:'',imagenes:[''],titulo:'',usuario:''};
+  noticia:Noticia = {id:'',categoria:'',fecha:'',descripcion:'',imagenes:[''],titulo:'',usuario:'',estado:true};
   noticias:Noticia[]=[this.noticia];
 
   constructor(

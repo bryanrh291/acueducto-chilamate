@@ -4,6 +4,7 @@ import { NavComponent } from './components/nav/nav.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { LoginComponent } from './components/login/login.component';
 import { NoticiaTabsComponent } from './components/noticia-tabs/noticia-tabs.component';
+import { NoticiaEditComponent } from './components/noticia-edit/noticia-edit.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
       {
         path:'noticias',
         component:NoticiaTabsComponent
+      },
+      {
+        path:'noticias/update/:id',
+        component:NoticiaEditComponent
       },
     ]
   },

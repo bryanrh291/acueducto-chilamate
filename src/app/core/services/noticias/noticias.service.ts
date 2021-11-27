@@ -1,7 +1,7 @@
 import { Injectable, OnInit } from '@angular/core';
 import { initializeApp } from 'firebase/app';
 import { getFirestore, serverTimestamp } from 'firebase/firestore';
-import { addDoc,doc, getDoc, collection, getDocs } from "firebase/firestore";
+import { setDoc, addDoc,doc, getDoc, collection, getDocs } from "firebase/firestore";
 import { environment } from '../../../../environments/environment';
 import { Noticia } from '../../../noticia/models/noticia.model';
 
@@ -24,11 +24,32 @@ async function getNoticiasFs() {
       fecha:data.fecha,
       imagenes:data.imagenes,
       titulo:data.titulo,
-      usuario:data.usuario
+      usuario:data.usuario,
+      estado:true
      };
     noticias.push(noti);
   });
 
+}
+
+async function updateNoticiaFs(noticia:Noticia)
+{
+
+  const noticiaRef = doc(db,'noticias',noticia.id);
+
+  const docRef = await setDoc(noticiaRef,
+  {
+    id:noticia.id,
+    categoria:noticia.categoria,
+    descripcion:noticia.descripcion,
+    fecha:noticia.fecha,
+    imagenes:noticia.imagenes,
+    titulo:noticia.titulo,
+    usuario:noticia.usuario,
+    fecha_creacion:noticia.fecha
+  });
+
+  return docRef;
 }
 
 async function addNoticiaFs(noticia:Partial<Noticia>)
@@ -61,10 +82,11 @@ async function getNoticiaFs(id:string) {
       id:docSnap.id,
       categoria:data.categoria,
       descripcion:data.descripcion,
-      fecha:data.fecha,
+      fecha:data.fecha.toDate(),
       imagenes:data.imagenes,
       titulo:data.titulo,
-      usuario:data.usuario
+      usuario:data.usuario,
+      estado:true
      };
   }
   else
@@ -76,7 +98,8 @@ async function getNoticiaFs(id:string) {
       fecha:'',
       imagenes:[],
       titulo:'',
-      usuario:''
+      usuario:'',
+      estado:true
      };
   }
   noticia.push(noti);
@@ -110,6 +133,11 @@ export class NoticiasService implements OnInit{
    addNoticia(noticia:Partial<Noticia>)
    {
      return addNoticiaFs(noticia);
+   }
+
+   updateNoticia(noticia:Noticia)
+   {
+     return updateNoticiaFs(noticia);
    }
 
 }

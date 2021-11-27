@@ -20,7 +20,8 @@ export class NoticiaComponent implements OnInit {
     imagenes:['https://www.themoviedb.org/t/p/w600_and_h900_bestv2/gGEsBPAijhVUFoiNpgZXqRVWJt2.jpg','https://www.themoviedb.org/t/p/w600_and_h900_bestv2/gGEsBPAijhVUFoiNpgZXqRVWJt2.jpg'],
     categoria:"",
     usuario:"",
-    fecha: ""
+    fecha: "",
+    estado:true
   };
 
 }

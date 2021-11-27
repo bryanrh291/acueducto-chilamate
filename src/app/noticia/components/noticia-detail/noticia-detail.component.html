@@ -6,7 +6,7 @@
   </mat-card-header>
   <mat-card-content>
     <p>{{noticia.descripcion }}</p>
-    <p>{{noticia.fecha}}</p>
+    <p>Fecha: {{noticia.fecha | date:'dd-MM-yyyy'}}</p>
   </mat-card-content>
   <h2>Fotos: </h2>
   <div class="noticia-grid">

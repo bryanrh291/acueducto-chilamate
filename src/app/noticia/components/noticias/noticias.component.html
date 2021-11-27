@@ -1,5 +1,7 @@
 
 <div class="noticia-grid">
+  <app-loading *ngIf="noticias===null"></app-loading>
   <app-noticia *ngFor="let noticia of noticias " [noticia]="noticia">
   </app-noticia>
+
 </div>

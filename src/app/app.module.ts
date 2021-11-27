@@ -17,6 +17,7 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage,getStorage } from '@angular/fire/storage';
+import { MaterialModule } from './material/material.module'
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     SharedModule,
     CoreModule,
     AppRoutingModule,
+    MaterialModule,
     BrowserAnimationsModule,
     HttpClientModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),

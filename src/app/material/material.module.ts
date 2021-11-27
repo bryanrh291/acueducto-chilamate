@@ -13,11 +13,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatNativeDateModule } from '@angular/material/core';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
 import { LayoutModule } from '@angular/cdk/layout';
 
@@ -46,6 +49,9 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatDividerModule,
     MatExpansionModule,
     CdkAccordionModule,
+    MatChipsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   exports:[
     MatButtonModule,
@@ -68,6 +74,12 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatDividerModule,
     MatExpansionModule,
     CdkAccordionModule,
+    MatChipsModule,
+    MatDatepickerModule,
+    MatNativeDateModule
+  ],
+  providers:[
+    MatNativeDateModule,
   ]
 })
 export class MaterialModule { }

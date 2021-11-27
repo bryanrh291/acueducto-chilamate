@@ -3,3 +3,77 @@
   width: 96%;
   margin: 2%;
 }
+
+.table
+{
+  background-color: hsl(60, 1%, 44%);
+  color: black;
+}
+
+thead
+{
+  background-color: #484847;
+}
+
+a
+{
+  color: white;
+}
+
+.svg-inline--fa
+{
+  font-size: 1.2rem;
+}
+
+.btn-primary
+{
+  height: 3.2rem;
+  width: 3.2rem;
+}
+
+.my-badge
+{
+  padding: .4rem;
+  background-color: red;
+  border-radius: 12%;
+}
+
+.my-badge.c-f
+{
+  background-color: #14a846;
+}
+
+.my-badge.c-l
+{
+  background-color: #ffff;
+  color: #000000;
+}
+
+.my-badge.c-pre
+{
+  background-color: #56a3a6;
+}
+
+.my-badge.c-pend
+{
+  background-color: #b83d3d;
+}
+.delete-icon
+{
+  color: #b83d3d;
+}
+
+table
+{
+  position: relative;
+}
+
+.th-scroll
+{
+  color: white;
+  background: #484847;
+  position:sticky;
+  top: 0;
+  box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+}
+
